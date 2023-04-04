@@ -1,4 +1,4 @@
-import { Task } from "../../task/models/task.model";
+import { Tasks } from "../../tasks/models/tasks.model";
 import { Lesson } from "../../lesson/models/lesson.model";
 import {
   BelongsTo,
@@ -27,11 +27,11 @@ export class LessonTask extends Model<LessonTask, LessonTaskAttr> {
 	@BelongsTo(() => Lesson)
 	lesson: Lesson[];
 
-	@ForeignKey(() => Task)
+	@ForeignKey(() => Tasks)
 	@Column({ type: DataType.INTEGER })
 	task_id: number;
-	@BelongsTo(() => Task)
-	task: Task[];
+	@BelongsTo(() => Tasks)
+	tasks: Tasks[];
 
 	
 }

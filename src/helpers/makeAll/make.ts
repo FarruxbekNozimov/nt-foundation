@@ -271,7 +271,7 @@ makeFiles(
 
 // CLASS
 makeFiles(
-  'classes',
+  'class',
   'Class',
   {
     student_id: [
@@ -329,7 +329,7 @@ makeFiles('lesson-task', 'LessonTask', {
   task_id: [
     'number',
     '{ type: DataType.INTEGER }',
-    { name: 'Task', column: 'task' },
+    { name: 'Tasks', column: 'tasks' },
   ],
 });
 
@@ -356,7 +356,7 @@ makeFiles(
       { name: 'Answer', column: 'answer' },
     ],
   },
-  { LessonTask: 'lesson_task' },
+  { LessonTask: 'lesson_task', TasksSample: 'tasks_sample' },
 );
 
 // DIFFICULT
@@ -390,15 +390,15 @@ makeFiles(
   { Tasks: 'tasks' },
 );
 
-// TASKS EXAMPLE
-makeFiles('tasks-example', 'TasksExample', {
+// TASKS SAMPLE
+makeFiles('tasks-sample', 'TasksSample', {
   input: ['string', '{ type: DataType.STRING }'],
   output: ['string', '{ type: DataType.STRING }'],
   description: ['string', '{ type: DataType.STRING }'],
   task_id: [
     'number',
     '{ type: DataType.INTEGER }',
-    { name: 'Tasks', column: 'task' },
+    { name: 'Tasks', column: 'tasks' },
   ],
 });
 
@@ -406,14 +406,14 @@ makeFiles('tasks-example', 'TasksExample', {
 makeFiles('video', 'Video', {
   link: ['string', '{ type: DataType.STRING }'],
   private: ['boolean', '{ type: DataType.BOOLEAN }'],
-});
+}, { Lesson: 'lesson' });
 
 // FILE
 makeFiles('file', 'File', {
   title: ['string', '{ type: DataType.STRING }'],
   link: ['string', '{ type: DataType.STRING }'],
   private: ['boolean', '{ type: DataType.BOOLEAN }'],
-});
+}, { Lesson: 'lesson' });
 
 // MESSAGE
 makeFiles('message', 'Message', {
@@ -444,7 +444,7 @@ makeFiles('message', 'Message', {
 makeFiles('media', 'Media', {
   link: ['string', '{ type: DataType.STRING }'],
   private: ['boolean', '{ type: DataType.BOOLEAN }'],
-});
+}, {Message:'message'});
 
 // RATING
 makeFiles('rating', 'Rating', {
@@ -462,3 +462,10 @@ makeFiles('otp', 'Otp', {
   expiration_time: ['Date', '{ type: DataType.DATE }'],
   verified: ['boolean', '{ type: DataType.BOOLEAN }'],
 }, { Teacher: 'teacher', Student: 'student' });
+
+
+// ANSWER
+makeFiles('answer', 'Answer', {
+  description: ['string', '{ type: DataType.STRING }'],
+  code: ['string', '{ type: DataType.STRING }'],
+}, { Tasks: 'tasks' });

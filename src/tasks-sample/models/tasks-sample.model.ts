@@ -1,4 +1,4 @@
-import { Tasks } from "../../task/models/task.model";
+import { Tasks } from "../../tasks/models/tasks.model";
 import {
   BelongsTo,
   Column,
@@ -9,7 +9,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-interface TasksExampleAttr {
+interface TasksSampleAttr {
   input:string
 	output:string
 	description:string
@@ -17,8 +17,8 @@ interface TasksExampleAttr {
 	
 }
 
-@Table({ tableName: 'tasks-tasksTasksExample' })
-export class TasksExample extends Model<TasksExample, TasksExampleAttr> {
+@Table({ tableName: 'tasks-sample' })
+export class TasksSample extends Model<TasksSample, TasksSampleAttr> {
   @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
   id: number;
 
@@ -35,7 +35,7 @@ export class TasksExample extends Model<TasksExample, TasksExampleAttr> {
 	@Column({ type: DataType.INTEGER })
 	task_id: number;
 	@BelongsTo(() => Tasks)
-	task: Tasks[];
+	tasks: Tasks[];
 
 	
 }

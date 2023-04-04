@@ -1,3 +1,4 @@
+import { Lesson } from '../../lesson/models/lesson.model';
 import {
   BelongsTo,
   Column,
@@ -24,6 +25,9 @@ export class Video extends Model<Video, VideoAttr> {
 
 	@Column({ type: DataType.BOOLEAN })
 	private:boolean;
+
+	@HasMany(() => Lesson)
+	lesson: Lesson[];
 
 	
 }

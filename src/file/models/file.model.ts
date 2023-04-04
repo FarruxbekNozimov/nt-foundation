@@ -1,3 +1,4 @@
+import { Lesson } from '../../lesson/models/lesson.model';
 import {
   BelongsTo,
   Column,
@@ -28,6 +29,9 @@ export class File extends Model<File, FileAttr> {
 
 	@Column({ type: DataType.BOOLEAN })
 	private:boolean;
+
+	@HasMany(() => Lesson)
+	lesson: Lesson[];
 
 	
 }

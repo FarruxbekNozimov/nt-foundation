@@ -15,7 +15,7 @@ import { SequelizeModule } from "@nestjs/sequelize";
       username: process.env.POSTGRES_USER,
       password: String(process.env.POSTGRES_PASSWORD),
       database: process.env.POSTGRES_DB,
-      models: [],
+      models: [__dirname + 'dist/**/*.model{.ts,.js}'],
       autoLoadModels: true,
       logging: false,
     })],

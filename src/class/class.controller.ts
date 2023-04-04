@@ -8,12 +8,12 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { CreateClassDto } from './dto/create-classes.dto';
-import { UpdateClassDto } from './dto/update-classes.dto';
-import { ClassService } from './classes.service';
+import { CreateClassDto } from './dto/create-class.dto';
+import { UpdateClassDto } from './dto/update-class.dto';
+import { ClassService } from './class.service';
 
 @ApiTags('Class')
-// @Controller('classes')
+@Controller('class')
 export class ClassController {
   constructor(private readonly classService: ClassService) {}
 

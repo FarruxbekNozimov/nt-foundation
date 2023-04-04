@@ -1,5 +1,4 @@
 import { Class } from "../../class/models/class.model";
-import { Message } from "../../message/models/message.model";
 import { Media } from "../../media/models/media.model";
 import { Student } from "../../student/models/student.model";
 import {

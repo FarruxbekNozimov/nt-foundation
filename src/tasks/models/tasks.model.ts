@@ -1,4 +1,5 @@
 import { LessonTask } from '../../lesson-task/models/lesson-task.model';
+import { TasksSample } from '../../tasks-sample/models/tasks-sample.model';
 import { Answer } from "../../answer/models/answer.model";
 import { Video } from "../../video/models/video.model";
 import { Difficult } from "../../difficult/models/difficult.model";
@@ -52,6 +53,9 @@ export class Tasks extends Model<Tasks, TasksAttr> {
 
 	@HasMany(() => LessonTask)
 	lesson_task: LessonTask[];
+
+	@HasMany(() => TasksSample)
+	tasks_sample: TasksSample[];
 
 	
 }

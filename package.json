@@ -28,6 +28,7 @@
     "@nestjs/sequelize": "^9.0.0",
     "@nestjs/swagger": "^6.3.0",
     "cookie-parser": "^1.4.6",
+    "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },

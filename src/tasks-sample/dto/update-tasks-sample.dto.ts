@@ -1,4 +1,4 @@
-export class UpdateTasksExampleDto {
+export class UpdateTasksSampleDto {
   input?: string;
 	output?: string;
 	description?: string;

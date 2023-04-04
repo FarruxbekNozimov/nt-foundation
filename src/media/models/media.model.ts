@@ -1,3 +1,4 @@
+import { Message } from '../../message/models/message.model';
 import {
   BelongsTo,
   Column,
@@ -24,6 +25,9 @@ export class Media extends Model<Media, MediaAttr> {
 
 	@Column({ type: DataType.BOOLEAN })
 	private:boolean;
+
+	@HasMany(() => Message)
+	message: Message[];
 
 	
 }
