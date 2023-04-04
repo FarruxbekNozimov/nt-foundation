@@ -212,7 +212,6 @@ makeFiles(
   },
 );
 
-
 // GENDER
 makeFiles(
   'gender',
@@ -258,31 +257,142 @@ makeFiles(
 );
 
 // CLASSES
-makeFiles(
-  'classes',
-  'Classes',
-  {
-    student_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Student', column: 'student' },
-    ],
-    teacher_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Teacher', column: 'teacher' },
-    ],
-    is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
-  },
-);
+makeFiles('classes', 'Classes', {
+  student_id: [
+    'number',
+    '{ type: DataType.INTEGER }',
+    { name: 'Student', column: 'student' },
+  ],
+  teacher_id: [
+    'number',
+    '{ type: DataType.INTEGER }',
+    { name: 'Teacher', column: 'teacher' },
+  ],
+  is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
+});
 
 // OTP
+makeFiles('otp', 'Otp', {
+  otp: ['string', '{ type: DataType.STRING }'],
+  expiration_time: ['Date', '{ type: DataType.DATE }'],
+  verified: ['boolean', '{ type: DataType.BOOLEAN }'],
+});
+
+// LESSON
 makeFiles(
-  'otp',
-  'Otp',
+  'lesson',
+  'Lesson',
   {
-    otp: ['string', '{ type: DataType.STRING }'],
-    expiration_time: ['date', '{ type: DataType.DATE }'],
-    verified: ['boolean', '{ type: DataType.BOOLEAN }'],
+    unit: ['number', '{ type: DataType.INTEGER }'],
+    theme: ['string', '{ type: DataType.STRING }'],
+    description: ['string', '{ type: DataType.STRING }'],
+    video_id: [
+      'number',
+      '{ type: DataType.INTEGER }',
+      { name: 'Video', column: 'video' },
+    ],
+    file_id: [
+      'number',
+      '{ type: DataType.INTEGER }',
+      { name: 'File', column: 'file' },
+    ],
+    end_time: ['Date', '{ type: DataType.DATE }'],
   },
+  { LessonTask: 'lesson_task' },
 );
+
+// LESSON TASK
+makeFiles('lesson-task', 'LessonTask', {
+  lesson_id: [
+    'number',
+    '{ type: DataType.INTEGER }',
+    { name: 'Lesson', column: 'lesson' },
+  ],
+  task_id: [
+    'number',
+    '{ type: DataType.INTEGER }',
+    { name: 'Task', column: 'task' },
+  ],
+});
+
+// TASKS
+makeFiles(
+  'tasks',
+  'Tasks',
+  {
+    title: ['string', '{ type: DataType.STRING }'],
+    description: ['string', '{ type: DataType.STRING }'],
+    difficult_id: [
+      'number',
+      '{ type: DataType.INTEGER }',
+      { name: 'Difficult', column: 'difficult' },
+    ],
+    constraint_id: [
+      'number',
+      '{ type: DataType.INTEGER }',
+      { name: 'Video', column: 'video' },
+    ],
+    answer_id: [
+      'number',
+      '{ type: DataType.INTEGER }',
+      { name: 'Answer', column: 'answer' },
+    ],
+  },
+  { LessonTask: 'lesson_task' },
+);
+
+// DIFFICULT
+makeFiles(
+  'difficult',
+  'Difficult',
+  {
+    name: ['string', '{ type: DataType.STRING }'],
+  },
+  { Tasks: 'tasks' },
+);
+
+// CONSTRAINTS
+makeFiles(
+  'constraints',
+  'Constraints',
+  {
+    constraint: ['string', '{ type: DataType.STRING }'],
+  },
+  { Tasks: 'tasks' },
+);
+
+// HINTS
+makeFiles(
+  'hints',
+  'Hints',
+  {
+    description: ['string', '{ type: DataType.STRING }'],
+    code: ['string', '{ type: DataType.STRING }'],
+  },
+  { Tasks: 'tasks' },
+);
+
+// TASKS EXAMPLE
+makeFiles('tasks-example', 'TasksExample', {
+  input: ['string', '{ type: DataType.STRING }'],
+  output: ['string', '{ type: DataType.STRING }'],
+  description: ['string', '{ type: DataType.STRING }'],
+  task_id: [
+    'number',
+    '{ type: DataType.INTEGER }',
+    { name: 'Tasks', column: 'task' },
+  ],
+});
+
+// VIDEOS
+makeFiles('video', 'Video', {
+  link: ['string', '{ type: DataType.STRING }'],
+  private: ['boolean', '{ type: DataType.BOOLEAN }'],
+});
+
+// FILE
+makeFiles('file', 'File', {
+  title: ['string', '{ type: DataType.STRING }'],
+  link: ['string', '{ type: DataType.STRING }'],
+  private: ['boolean', '{ type: DataType.BOOLEAN }'],
+});
