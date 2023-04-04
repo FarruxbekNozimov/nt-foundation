@@ -1,5 +1,5 @@
 export class UpdateVideoDto {
-  // link?: string;
+  link?: string;
 	private?: boolean;
 	
 }

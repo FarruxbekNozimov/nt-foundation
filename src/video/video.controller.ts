@@ -13,7 +13,7 @@ import { UpdateVideoDto } from './dto/update-video.dto';
 import { VideoService } from './video.service';
 
 @ApiTags('Video')
-// @Controller('video')
+@Controller('video')
 export class VideoController {
   constructor(private readonly videoService: VideoService) {}
 

@@ -13,7 +13,7 @@ import { UpdateRatingDto } from './dto/update-rating.dto';
 import { RatingService } from './rating.service';
 
 @ApiTags('Rating')
-// @Controller('rating')
+@Controller('rating')
 export class RatingController {
   constructor(private readonly ratingService: RatingService) {}
 

@@ -1,5 +1,5 @@
 export class UpdateTasksDto {
-  // title?: string;
+  title?: string;
 	description?: string;
 	difficult_id?: number;
 	constraint_id?: number;

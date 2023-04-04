@@ -13,7 +13,7 @@ import { UpdateOtpDto } from './dto/update-otp.dto';
 import { OtpService } from './otp.service';
 
 @ApiTags('Otp')
-// @Controller('otp')
+@Controller('otp')
 export class OtpController {
   constructor(private readonly otpService: OtpService) {}
 

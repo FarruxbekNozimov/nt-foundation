@@ -13,7 +13,7 @@ import { UpdateTasksExampleDto } from './dto/update-tasks-tasksTasksExample.dto'
 import { TasksExampleService } from './tasks-tasksTasksExample.service';
 
 @ApiTags('TasksExample')
-// @Controller('tasks-tasksTasksExample')
+@Controller('tasks-tasksTasksExample')
 export class TasksExampleController {
   constructor(private readonly tasksTasksExampleService: TasksExampleService) {}
 

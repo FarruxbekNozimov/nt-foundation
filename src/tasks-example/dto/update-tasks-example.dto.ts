@@ -1,5 +1,5 @@
 export class UpdateTasksExampleDto {
-  // input?: string;
+  input?: string;
 	output?: string;
 	description?: string;
 	task_id?: number;

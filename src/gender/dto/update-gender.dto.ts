@@ -1,4 +1,4 @@
 export class UpdateGenderDto {
-  // name?: string;
+  name?: string;
 	
 }

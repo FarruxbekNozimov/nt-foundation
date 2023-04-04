@@ -1,5 +1,5 @@
 export class UpdateMessageDto {
-  // text?: string;
+  text?: string;
 	user_id?: number;
 	media_id?: number;
 	reply_to?: number;

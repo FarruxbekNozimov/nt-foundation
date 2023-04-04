@@ -13,7 +13,7 @@ import { UpdateMessageDto } from './dto/update-message.dto';
 import { MessageService } from './message.service';
 
 @ApiTags('Message')
-// @Controller('message')
+@Controller('message')
 export class MessageController {
   constructor(private readonly messageService: MessageService) {}
 

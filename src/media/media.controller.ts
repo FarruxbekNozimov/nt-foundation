@@ -13,7 +13,7 @@ import { UpdateMediaDto } from './dto/update-media.dto';
 import { MediaService } from './media.service';
 
 @ApiTags('Media')
-// @Controller('media')
+@Controller('media')
 export class MediaController {
   constructor(private readonly mediaService: MediaService) {}
 

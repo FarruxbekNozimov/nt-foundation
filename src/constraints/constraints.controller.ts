@@ -13,7 +13,7 @@ import { UpdateConstraintsDto } from './dto/update-constraints.dto';
 import { ConstraintsService } from './constraints.service';
 
 @ApiTags('Constraints')
-// @Controller('constraints')
+@Controller('constraints')
 export class ConstraintsController {
   constructor(private readonly constraintsService: ConstraintsService) {}
 

@@ -208,7 +208,7 @@ makeFiles(
     refresh_token: ['string', '{ type: DataType.STRING }'],
   },
   {
-    Classes: 'classes',
+    Class: 'class',
   },
 );
 

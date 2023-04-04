@@ -1,5 +1,5 @@
 export class UpdateRatingDto {
-  // student_id?: number;
+  student_id?: number;
 	stars?: number;
 	
 }

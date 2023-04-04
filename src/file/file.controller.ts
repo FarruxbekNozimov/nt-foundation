@@ -13,7 +13,7 @@ import { UpdateFileDto } from './dto/update-file.dto';
 import { FileService } from './file.service';
 
 @ApiTags('File')
-// @Controller('file')
+@Controller('file')
 export class FileController {
   constructor(private readonly fileService: FileService) {}
 

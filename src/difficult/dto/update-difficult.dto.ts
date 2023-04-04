@@ -1,4 +1,4 @@
 export class UpdateDifficultDto {
-  // name?: string;
+  name?: string;
 	
 }

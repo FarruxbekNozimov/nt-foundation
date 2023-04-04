@@ -13,7 +13,7 @@ import { UpdateTasksDto } from './dto/update-tasks.dto';
 import { TasksService } from './tasks.service';
 
 @ApiTags('Tasks')
-// @Controller('tasks')
+@Controller('tasks')
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 

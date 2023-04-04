@@ -13,7 +13,7 @@ import { UpdateClassDto } from './dto/update-classes.dto';
 import { ClassService } from './classes.service';
 
 @ApiTags('Class')
-// @Controller('classes')
+@Controller('classes')
 export class ClassController {
   constructor(private readonly classService: ClassService) {}
 

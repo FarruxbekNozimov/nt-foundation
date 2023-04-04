@@ -1,5 +1,5 @@
 export class UpdateLessonDto {
-  // unit?: number;
+  unit?: number;
 	theme?: string;
 	description?: string;
 	video_id?: number;

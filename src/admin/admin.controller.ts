@@ -13,7 +13,7 @@ import { UpdateAdminDto } from './dto/update-admin.dto';
 import { AdminService } from './admin.service';
 
 @ApiTags('Admin')
-// @Controller('admin')
+@Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 

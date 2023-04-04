@@ -1,5 +1,5 @@
 export class UpdateHintsDto {
-  // description?: string;
+  description?: string;
 	code?: string;
 	
 }

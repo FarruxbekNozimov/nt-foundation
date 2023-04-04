@@ -13,7 +13,7 @@ import { UpdateDifficultDto } from './dto/update-difficult.dto';
 import { DifficultService } from './difficult.service';
 
 @ApiTags('Difficult')
-// @Controller('difficult')
+@Controller('difficult')
 export class DifficultController {
   constructor(private readonly difficultService: DifficultService) {}
 

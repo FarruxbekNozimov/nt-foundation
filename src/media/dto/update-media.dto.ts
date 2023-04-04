@@ -1,5 +1,5 @@
 export class UpdateMediaDto {
-  // link?: string;
+  link?: string;
 	private?: boolean;
 	
 }

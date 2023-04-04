@@ -13,7 +13,7 @@ import { UpdateHintsDto } from './dto/update-hints.dto';
 import { HintsService } from './hints.service';
 
 @ApiTags('Hints')
-// @Controller('hints')
+@Controller('hints')
 export class HintsController {
   constructor(private readonly hintsService: HintsService) {}
 

@@ -1,5 +1,5 @@
 export class UpdateFileDto {
-  // title?: string;
+  title?: string;
 	link?: string;
 	private?: boolean;
 	
