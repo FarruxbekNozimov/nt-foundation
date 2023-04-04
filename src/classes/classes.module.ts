@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
-import { ClassesController } from './classes.controller';
-import { ClassesService } from './classes.service';
-import { Classes } from './models/classes.model';
+import { ClassController } from './classes.controller';
+import { ClassService } from './classes.service';
+import { Class } from './models/classes.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Classes]), JwtModule],
-  controllers: [ClassesController],
-  providers: [ClassesService],
+  imports: [SequelizeModule.forFeature([Class]), JwtModule],
+  controllers: [ClassController],
+  providers: [ClassService],
 })
-export class ClassesModule {}
+export class ClassModule {}

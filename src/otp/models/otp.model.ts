@@ -1,3 +1,5 @@
+import { Teacher } from '../../teacher/models/teacher.model';
+import { Student } from '../../student/models/student.model';
 import {
   BelongsTo,
   Column,
@@ -28,6 +30,12 @@ export class Otp extends Model<Otp, OtpAttr> {
 
 	@Column({ type: DataType.BOOLEAN })
 	verified:boolean;
+
+	@HasMany(() => Teacher)
+	teacher: Teacher[];
+
+	@HasMany(() => Student)
+	student: Student[];
 
 	
 }

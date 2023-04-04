@@ -8,45 +8,45 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { CreateClassesDto } from './dto/create-classes.dto';
-import { UpdateClassesDto } from './dto/update-classes.dto';
-import { ClassesService } from './classes.service';
+import { CreateClassDto } from './dto/create-classes.dto';
+import { UpdateClassDto } from './dto/update-classes.dto';
+import { ClassService } from './classes.service';
 
-@ApiTags('Classes')
+@ApiTags('Class')
 // @Controller('classes')
-export class ClassesController {
-  constructor(private readonly classesService: ClassesService) {}
+export class ClassController {
+  constructor(private readonly classService: ClassService) {}
 
-  @ApiOperation({ summary: 'Create a classes' })
+  @ApiOperation({ summary: 'Create a class' })
   @Post()
-  create(@Body() createClassesDto: CreateClassesDto) {
-    return this.classesService.create(createClassesDto);
+  create(@Body() createClassDto: CreateClassDto) {
+    return this.classService.create(createClassDto);
   }
 
-  @ApiOperation({ summary: 'Get all classes' })
+  @ApiOperation({ summary: 'Get all class' })
   @Get()
   findAll() {
-    return this.classesService.findAll();
+    return this.classService.findAll();
   }
 
-  @ApiOperation({ summary: 'Get classes' })
+  @ApiOperation({ summary: 'Get class' })
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.classesService.findOne(+id);
+    return this.classService.findOne(+id);
   }
 
-  @ApiOperation({ summary: 'Update classes' })
+  @ApiOperation({ summary: 'Update class' })
   @Put(':id')
   async update(
     @Param('id') id: number,
-    @Body() updateClassesDto: UpdateClassesDto,
+    @Body() updateClassDto: UpdateClassDto,
   ) {
-    return await this.classesService.update(+id, updateClassesDto);
+    return await this.classService.update(+id, updateClassDto);
   }
 
-  @ApiOperation({ summary: 'Delete classes' })
+  @ApiOperation({ summary: 'Delete class' })
   @Delete(':id')
   async delete(@Param('id') id: number): Promise<number> {
-    return await this.classesService.delete(id);
+    return await this.classService.delete(id);
   }
 }

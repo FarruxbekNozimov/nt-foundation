@@ -1,35 +1,35 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Classes } from './models/classes.model';
-import { CreateClassesDto } from './dto/create-classes.dto';
-import { UpdateClassesDto } from './dto/update-classes.dto';
+import { Class } from './models/classes.model';
+import { CreateClassDto } from './dto/create-classes.dto';
+import { UpdateClassDto } from './dto/update-classes.dto';
 
 @Injectable()
-export class ClassesService {
-  constructor(@InjectModel(Classes) private classesRepo: typeof Classes) { }
+export class ClassService {
+  constructor(@InjectModel(Class) private classRepo: typeof Class) { }
 
-  async create(createClassesDto: CreateClassesDto) {
-    const res = await this.classesRepo.create(createClassesDto);
+  async create(createClassDto: CreateClassDto) {
+    const res = await this.classRepo.create(createClassDto);
     return res;
   }
 
   async findAll() {
-    return await this.classesRepo.findAll({ include: { all: true, nested: true } });
+    return await this.classRepo.findAll({ include: { all: true, nested: true } });
   }
 
   async findOne(id: number) {
-    return await this.classesRepo.findByPk(id);
+    return await this.classRepo.findByPk(id);
   }
 
-  async update(id: number, updateClassesDto: UpdateClassesDto) {
-    return await this.classesRepo.update(updateClassesDto, {
+  async update(id: number, updateClassDto: UpdateClassDto) {
+    return await this.classRepo.update(updateClassDto, {
       where: { id },
       returning: true,
     });
   }
 
   async delete(id: number): Promise<number> {
-    const result = await this.classesRepo.destroy({ where: { id } });
+    const result = await this.classRepo.destroy({ where: { id } });
     return result;
   }
 }

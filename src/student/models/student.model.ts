@@ -1,4 +1,4 @@
-import { Classes } from '../../classes/models/classes.model';
+import { Class } from '../../class/models/class.model';
 import { Otp } from "../../otp/models/otp.model";
 import { Gender } from "../../gender/models/gender.model";
 import {
@@ -74,8 +74,8 @@ export class Student extends Model<Student, StudentAttr> {
 	@Column({ type: DataType.STRING })
 	refresh_token:string;
 
-	@HasMany(() => Classes)
-	classes: Classes[];
+	@HasMany(() => Class)
+	class: Class[];
 
 	
 }

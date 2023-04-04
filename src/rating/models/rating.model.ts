@@ -1,5 +1,3 @@
-import { Message } from '../../message/models/message.model';
-import { Teacher } from "../../teacher/models/teacher.model";
 import { Student } from "../../student/models/student.model";
 import {
   BelongsTo,
@@ -11,15 +9,14 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-interface ClassAttr {
+interface RatingAttr {
   student_id:number
-	teacher_id:number
-	is_active:boolean
+	stars:number
 	
 }
 
-@Table({ tableName: 'classes' })
-export class Class extends Model<Class, ClassAttr> {
+@Table({ tableName: 'rating' })
+export class Rating extends Model<Rating, RatingAttr> {
   @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
   id: number;
 
@@ -29,17 +26,8 @@ export class Class extends Model<Class, ClassAttr> {
 	@BelongsTo(() => Student)
 	student: Student[];
 
-	@ForeignKey(() => Teacher)
 	@Column({ type: DataType.INTEGER })
-	teacher_id: number;
-	@BelongsTo(() => Teacher)
-	teacher: Teacher[];
-
-	@Column({ type: DataType.BOOLEAN })
-	is_active:boolean;
-
-	@HasMany(() => Message)
-	message: Message[];
+	stars:number;
 
 	
 }
