@@ -182,97 +182,97 @@ function makeFiles(
   }
 }
 
-// TEACHER
-makeFiles(
-  'teacher',
-  'Teacher',
-  {
-    username: ['string', '{ type: DataType.STRING }'],
-    first_name: ['string', '{ type: DataType.STRING }'],
-    last_name: ['string', '{ type: DataType.STRING }'],
-    phone: ['string', '{ type: DataType.STRING }'],
-    password: ['string', '{ type: DataType.STRING }'],
-    email: ['string', '{ type: DataType.STRING }'],
-    birth_date: ['string', '{ type: DataType.STRING }'],
-    gender_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Gender', column: 'gender' },
-    ],
-    otp_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Otp', column: 'otp' },
-    ],
-    is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
-    refresh_token: ['string', '{ type: DataType.STRING }'],
-  },
-  {
-    Class: 'class',
-  },
-);
+// // TEACHER
+// makeFiles(
+//   'teacher',
+//   'Teacher',
+//   {
+//     username: ['string', '{ type: DataType.STRING }'],
+//     first_name: ['string', '{ type: DataType.STRING }'],
+//     last_name: ['string', '{ type: DataType.STRING }'],
+//     phone: ['string', '{ type: DataType.STRING }'],
+//     password: ['string', '{ type: DataType.STRING }'],
+//     email: ['string', '{ type: DataType.STRING }'],
+//     birth_date: ['string', '{ type: DataType.STRING }'],
+//     gender_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Gender', column: 'gender' },
+//     ],
+//     otp_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Otp', column: 'otp' },
+//     ],
+//     is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
+//     refresh_token: ['string', '{ type: DataType.STRING }'],
+//   },
+//   {
+//     Classes: 'classes',
+//   },
+// );
 
-// ADMIN
-makeFiles(
-  'admin',
-  'Admin',
-  {
-    username: ['string', '{ type: DataType.STRING }'],
-    phone: ['string', '{ type: DataType.STRING }'],
-    password: ['string', '{ type: DataType.STRING }'],
-    email: ['string', '{ type: DataType.STRING }'],
-    is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
-    refresh_token: ['string', '{ type: DataType.STRING }'],
-  },
-);
+// // ADMIN
+// makeFiles(
+//   'admin',
+//   'Admin',
+//   {
+//     username: ['string', '{ type: DataType.STRING }'],
+//     phone: ['string', '{ type: DataType.STRING }'],
+//     password: ['string', '{ type: DataType.STRING }'],
+//     email: ['string', '{ type: DataType.STRING }'],
+//     is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
+//     refresh_token: ['string', '{ type: DataType.STRING }'],
+//   },
+// );
 
 
-// GENDER
-makeFiles(
-  'gender',
-  'Gender',
-  {
-    name: ['string', '{ type: DataType.STRING }'],
-  },
-  {
-    Teacher: 'teacher',
-    Student: 'student',
-  },
-);
+// // GENDER
+// makeFiles(
+//   'gender',
+//   'Gender',
+//   {
+//     name: ['string', '{ type: DataType.STRING }'],
+//   },
+//   {
+//     Teacher: 'teacher',
+//     Student: 'student',
+//   },
+// );
 
-// STUDENT
-makeFiles(
-  'student',
-  'Student',
-  {
-    username: ['string', '{ type: DataType.STRING }'],
-    first_name: ['string', '{ type: DataType.STRING }'],
-    last_name: ['string', '{ type: DataType.STRING }'],
-    phone_number: ['string', '{ type: DataType.STRING }'],
-    phone_number_alter: ['string', '{ type: DataType.STRING }'],
-    password: ['string', '{ type: DataType.STRING }'],
-    email: ['string', '{ type: DataType.STRING }'],
-    birth_date: ['string', '{ type: DataType.STRING }'],
-    gender_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Gender', column: 'gender' },
-    ],
-    otp_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Otp', column: 'otp' },
-    ],
-    is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
-    refresh_token: ['string', '{ type: DataType.STRING }'],
-  },
-  { Class: 'class' },
-);
+// // STUDENT
+// makeFiles(
+//   'student',
+//   'Student',
+//   {
+//     username: ['string', '{ type: DataType.STRING }'],
+//     first_name: ['string', '{ type: DataType.STRING }'],
+//     last_name: ['string', '{ type: DataType.STRING }'],
+//     phone_number: ['string', '{ type: DataType.STRING }'],
+//     phone_number_alter: ['string', '{ type: DataType.STRING }'],
+//     password: ['string', '{ type: DataType.STRING }'],
+//     email: ['string', '{ type: DataType.STRING }'],
+//     birth_date: ['string', '{ type: DataType.STRING }'],
+//     gender_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Gender', column: 'gender' },
+//     ],
+//     otp_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Otp', column: 'otp' },
+//     ],
+//     is_active: ['boolean', '{ type: DataType.BOOLEAN }'],
+//     refresh_token: ['string', '{ type: DataType.STRING }'],
+//   },
+//   { Classes: 'class' },
+// );
 
 // CLASS
 makeFiles(
-  'class',
-  'Class',
+  'classes',
+  'Classes',
   {
     student_id: [
       'number',
@@ -289,183 +289,183 @@ makeFiles(
   { Message: 'message' },
 );
 
-// OTP
-makeFiles('otp', 'Otp', {
-  otp: ['string', '{ type: DataType.STRING }'],
-  expiration_time: ['Date', '{ type: DataType.DATE }'],
-  verified: ['boolean', '{ type: DataType.BOOLEAN }'],
-});
+// // OTP
+// makeFiles('otp', 'Otp', {
+//   otp: ['string', '{ type: DataType.STRING }'],
+//   expiration_time: ['Date', '{ type: DataType.DATE }'],
+//   verified: ['boolean', '{ type: DataType.BOOLEAN }'],
+// });
 
-// LESSON
-makeFiles(
-  'lesson',
-  'Lesson',
-  {
-    unit: ['number', '{ type: DataType.INTEGER }'],
-    theme: ['string', '{ type: DataType.STRING }'],
-    description: ['string', '{ type: DataType.STRING }'],
-    video_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Video', column: 'video' },
-    ],
-    file_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'File', column: 'file' },
-    ],
-    end_time: ['Date', '{ type: DataType.DATE }'],
-  },
-  { LessonTask: 'lesson_task' },
-);
+// // LESSON
+// makeFiles(
+//   'lesson',
+//   'Lesson',
+//   {
+//     unit: ['number', '{ type: DataType.INTEGER }'],
+//     theme: ['string', '{ type: DataType.STRING }'],
+//     description: ['string', '{ type: DataType.STRING }'],
+//     video_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Video', column: 'video' },
+//     ],
+//     file_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'File', column: 'file' },
+//     ],
+//     end_time: ['Date', '{ type: DataType.DATE }'],
+//   },
+//   { LessonTask: 'lesson_task' },
+// );
 
-// LESSON TASK
-makeFiles('lesson-task', 'LessonTask', {
-  lesson_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Lesson', column: 'lesson' },
-  ],
-  task_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Tasks', column: 'tasks' },
-  ],
-});
+// // LESSON TASK
+// makeFiles('lesson-task', 'LessonTask', {
+//   lesson_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Lesson', column: 'lesson' },
+//   ],
+//   task_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Tasks', column: 'tasks' },
+//   ],
+// });
 
-// TASKS
-makeFiles(
-  'tasks',
-  'Tasks',
-  {
-    title: ['string', '{ type: DataType.STRING }'],
-    description: ['string', '{ type: DataType.STRING }'],
-    difficult_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Difficult', column: 'difficult' },
-    ],
-    constraint_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Video', column: 'video' },
-    ],
-    answer_id: [
-      'number',
-      '{ type: DataType.INTEGER }',
-      { name: 'Answer', column: 'answer' },
-    ],
-  },
-  { LessonTask: 'lesson_task', TasksSample: 'tasks_sample' },
-);
+// // TASKS
+// makeFiles(
+//   'tasks',
+//   'Tasks',
+//   {
+//     title: ['string', '{ type: DataType.STRING }'],
+//     description: ['string', '{ type: DataType.STRING }'],
+//     difficult_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Difficult', column: 'difficult' },
+//     ],
+//     constraint_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Video', column: 'video' },
+//     ],
+//     answer_id: [
+//       'number',
+//       '{ type: DataType.INTEGER }',
+//       { name: 'Answer', column: 'answer' },
+//     ],
+//   },
+//   { LessonTask: 'lesson_task', TasksSample: 'tasks_sample' },
+// );
 
-// DIFFICULT
-makeFiles(
-  'difficult',
-  'Difficult',
-  {
-    name: ['string', '{ type: DataType.STRING }'],
-  },
-  { Tasks: 'tasks' },
-);
+// // DIFFICULT
+// makeFiles(
+//   'difficult',
+//   'Difficult',
+//   {
+//     name: ['string', '{ type: DataType.STRING }'],
+//   },
+//   { Tasks: 'tasks' },
+// );
 
-// CONSTRAINTS
-makeFiles(
-  'constraints',
-  'Constraints',
-  {
-    constraint: ['string', '{ type: DataType.STRING }'],
-  },
-  { Tasks: 'tasks' },
-);
+// // CONSTRAINTS
+// makeFiles(
+//   'constraints',
+//   'Constraints',
+//   {
+//     constraint: ['string', '{ type: DataType.STRING }'],
+//   },
+//   { Tasks: 'tasks' },
+// );
 
-// HINTS
-makeFiles(
-  'hints',
-  'Hints',
-  {
-    description: ['string', '{ type: DataType.STRING }'],
-    code: ['string', '{ type: DataType.STRING }'],
-  },
-  { Tasks: 'tasks' },
-);
+// // HINTS
+// makeFiles(
+//   'hints',
+//   'Hints',
+//   {
+//     description: ['string', '{ type: DataType.STRING }'],
+//     code: ['string', '{ type: DataType.STRING }'],
+//   },
+//   { Tasks: 'tasks' },
+// );
 
-// TASKS SAMPLE
-makeFiles('tasks-sample', 'TasksSample', {
-  input: ['string', '{ type: DataType.STRING }'],
-  output: ['string', '{ type: DataType.STRING }'],
-  description: ['string', '{ type: DataType.STRING }'],
-  task_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Tasks', column: 'tasks' },
-  ],
-});
+// // TASKS SAMPLE
+// makeFiles('tasks-sample', 'TasksSample', {
+//   input: ['string', '{ type: DataType.STRING }'],
+//   output: ['string', '{ type: DataType.STRING }'],
+//   description: ['string', '{ type: DataType.STRING }'],
+//   task_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Tasks', column: 'tasks' },
+//   ],
+// });
 
-// VIDEOS
-makeFiles('video', 'Video', {
-  link: ['string', '{ type: DataType.STRING }'],
-  private: ['boolean', '{ type: DataType.BOOLEAN }'],
-}, { Lesson: 'lesson' });
+// // VIDEOS
+// makeFiles('video', 'Video', {
+//   link: ['string', '{ type: DataType.STRING }'],
+//   private: ['boolean', '{ type: DataType.BOOLEAN }'],
+// }, { Lesson: 'lesson' });
 
-// FILE
-makeFiles('file', 'File', {
-  title: ['string', '{ type: DataType.STRING }'],
-  link: ['string', '{ type: DataType.STRING }'],
-  private: ['boolean', '{ type: DataType.BOOLEAN }'],
-}, { Lesson: 'lesson' });
+// // FILE
+// makeFiles('file', 'File', {
+//   title: ['string', '{ type: DataType.STRING }'],
+//   link: ['string', '{ type: DataType.STRING }'],
+//   private: ['boolean', '{ type: DataType.BOOLEAN }'],
+// }, { Lesson: 'lesson' });
 
-// MESSAGE
-makeFiles('message', 'Message', {
-  text: ['string', '{ type: DataType.STRING }'],
-  user_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Student', column: 'student' },
-  ],
-  media_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Media', column: 'media' },
-  ],
-  reply_to: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Message', column: 'message' },
-  ],
-  class_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Class', column: 'class' },
-  ],
-});
+// // MESSAGE
+// makeFiles('message', 'Message', {
+//   text: ['string', '{ type: DataType.STRING }'],
+//   user_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Student', column: 'student' },
+//   ],
+//   media_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Media', column: 'media' },
+//   ],
+//   reply_to: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Message', column: 'message' },
+//   ],
+//   classes_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Classes', column: 'classes' },
+//   ],
+// });
 
-// MEDIA
-makeFiles('media', 'Media', {
-  link: ['string', '{ type: DataType.STRING }'],
-  private: ['boolean', '{ type: DataType.BOOLEAN }'],
-}, {Message:'message'});
+// // MEDIA
+// makeFiles('media', 'Media', {
+//   link: ['string', '{ type: DataType.STRING }'],
+//   private: ['boolean', '{ type: DataType.BOOLEAN }'],
+// }, { Message: 'message' });
 
-// RATING
-makeFiles('rating', 'Rating', {
-  student_id: [
-    'number',
-    '{ type: DataType.INTEGER }',
-    { name: 'Student', column: 'student' },
-  ],
-  stars: ['number', '{ type: DataType.INTEGER }'],
-});
+// // RATING
+// makeFiles('rating', 'Rating', {
+//   student_id: [
+//     'number',
+//     '{ type: DataType.INTEGER }',
+//     { name: 'Student', column: 'student' },
+//   ],
+//   stars: ['number', '{ type: DataType.INTEGER }'],
+// });
 
-// OTP
-makeFiles('otp', 'Otp', {
-  otp: ['string', '{ type: DataType.STRING }'],
-  expiration_time: ['Date', '{ type: DataType.DATE }'],
-  verified: ['boolean', '{ type: DataType.BOOLEAN }'],
-}, { Teacher: 'teacher', Student: 'student' });
+// // OTP
+// makeFiles('otp', 'Otp', {
+//   otp: ['string', '{ type: DataType.STRING }'],
+//   expiration_time: ['Date', '{ type: DataType.DATE }'],
+//   verified: ['boolean', '{ type: DataType.BOOLEAN }'],
+// }, { Teacher: 'teacher', Student: 'student' });
 
 
-// ANSWER
-makeFiles('answer', 'Answer', {
-  description: ['string', '{ type: DataType.STRING }'],
-  code: ['string', '{ type: DataType.STRING }'],
-}, { Tasks: 'tasks' });
+// // ANSWER
+// makeFiles('answer', 'Answer', {
+//   description: ['string', '{ type: DataType.STRING }'],
+//   code: ['string', '{ type: DataType.STRING }'],
+// }, { Tasks: 'tasks' });

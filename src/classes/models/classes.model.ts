@@ -11,15 +11,15 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-interface ClassAttr {
+interface ClassesAttr {
   student_id:number
 	teacher_id:number
 	is_active:boolean
 	
 }
 
-@Table({ tableName: 'class' })
-export class Class extends Model<Class, ClassAttr> {
+@Table({ tableName: 'classes' })
+export class Classes extends Model<Classes, ClassesAttr> {
   @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
   id: number;
 

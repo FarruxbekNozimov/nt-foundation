@@ -9,5 +9,6 @@ import { Student } from './models/student.model';
   imports: [SequelizeModule.forFeature([Student]), JwtModule],
   controllers: [StudentController],
   providers: [StudentService],
+  exports: [StudentService]
 })
-export class StudentModule {}
+export class StudentModule { }

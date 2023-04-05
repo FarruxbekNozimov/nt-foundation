@@ -21,6 +21,11 @@ export class StudentService {
     return await this.studentRepo.findByPk(id);
   }
 
+  async findOneByPhone(phone: string) {
+    return await this.studentRepo.findOne({ where: { phone_number: phone } });
+  }
+
+
   async update(id: number, updateStudentDto: UpdateStudentDto) {
     return await this.studentRepo.update(updateStudentDto, {
       where: { id },

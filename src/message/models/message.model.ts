@@ -1,32 +1,32 @@
-import { Class } from "../../class/models/class.model";
+import { Classes } from "../../classes/models/classes.model";
 import { Media } from "../../media/models/media.model";
 import { Student } from "../../student/models/student.model";
 import {
-  BelongsTo,
-  Column,
-  DataType,
-  ForeignKey,
-  HasMany,
-  Model,
-  Table,
+	BelongsTo,
+	Column,
+	DataType,
+	ForeignKey,
+	HasMany,
+	Model,
+	Table,
 } from 'sequelize-typescript';
 
 interface MessageAttr {
-  text:string
-	user_id:number
-	media_id:number
-	reply_to:number
-	class_id:number
-	
+	text: string
+	user_id: number
+	media_id: number
+	reply_to: number
+	classes_id: number
+
 }
 
 @Table({ tableName: 'message' })
 export class Message extends Model<Message, MessageAttr> {
-  @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
-  id: number;
+	@Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
+	id: number;
 
-  @Column({ type: DataType.STRING })
-	text:string;
+	@Column({ type: DataType.STRING })
+	text: string;
 
 	@ForeignKey(() => Student)
 	@Column({ type: DataType.INTEGER })
@@ -46,11 +46,11 @@ export class Message extends Model<Message, MessageAttr> {
 	@BelongsTo(() => Message)
 	message: Message[];
 
-	@ForeignKey(() => Class)
+	@ForeignKey(() => Classes)
 	@Column({ type: DataType.INTEGER })
-	class_id: number;
-	@BelongsTo(() => Class)
-	class: Class[];
+	classes_id: number;
+	@BelongsTo(() => Classes)
+	classes: Classes[];
 
-	
+
 }

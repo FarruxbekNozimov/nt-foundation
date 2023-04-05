@@ -3,6 +3,6 @@ export class UpdateMessageDto {
 	user_id?: number;
 	media_id?: number;
 	reply_to?: number;
-	class_id?: number;
+	classes_id?: number;
 	
 }

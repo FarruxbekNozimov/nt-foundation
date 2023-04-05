@@ -37,8 +37,10 @@ import { Tasks } from './tasks/models/tasks.model';
 import { Teacher } from './teacher/models/teacher.model';
 import { Video } from './video/models/video.model';
 import { File } from './file/models/file.model';
+import { ClassesModule } from './classes/classes.module';
+import { Classes } from './classes/models/classes.model';
+import { AuthModule } from './auth/auth.module';
 
-console.log(__dirname + '/**/*.model{.ts,.js}');
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -70,11 +72,12 @@ console.log(__dirname + '/**/*.model{.ts,.js}');
         Tasks,
         TasksSample,
         Teacher,
-        Video
+        Video,
+        Classes
       ],
       autoLoadModels: true,
       logging: false,
-    }), AdminModule, AnswerModule, ConstraintsModule, DifficultModule, FileModule, GenderModule, HintsModule, LessonModule, LessonTaskModule, MediaModule, MessageModule, OtpModule, RatingModule, StudentModule, TasksModule, TasksSampleModule, TeacherModule, VideoModule],
+    }), AuthModule, AdminModule, AnswerModule, ConstraintsModule, DifficultModule, FileModule, GenderModule, HintsModule, LessonModule, LessonTaskModule, MediaModule, MessageModule, OtpModule, RatingModule, StudentModule, TasksModule, TasksSampleModule, TeacherModule, VideoModule, ClassesModule],
   controllers: [],
   providers: [],
 })

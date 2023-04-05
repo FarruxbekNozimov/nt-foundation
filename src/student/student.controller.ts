@@ -15,7 +15,7 @@ import { StudentService } from './student.service';
 @ApiTags('Student')
 @Controller('student')
 export class StudentController {
-  constructor(private readonly studentService: StudentService) {}
+  constructor(private readonly studentService: StudentService) { }
 
   @ApiOperation({ summary: 'Create a student' })
   @Post()

@@ -10,9 +10,9 @@ import {
 } from 'sequelize-typescript';
 
 interface HintsAttr {
-  description:string
-	code:string
-	
+  description: string
+  code: string
+
 }
 
 @Table({ tableName: 'hints' })
@@ -21,13 +21,13 @@ export class Hints extends Model<Hints, HintsAttr> {
   id: number;
 
   @Column({ type: DataType.STRING })
-	description:string;
+  description: string;
 
-	@Column({ type: DataType.STRING })
-	code:string;
+  @Column({ type: DataType.STRING })
+  code: string;
 
-	@HasMany(() => Tasks)
-	tasks: Tasks[];
+  @HasMany(() => Tasks)
+  tasks: Tasks[];
 
-	
+
 }

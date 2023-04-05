@@ -13,6 +13,7 @@ import {
 	Table,
 } from 'sequelize-typescript';
 import { Constraints } from '../../constraints/models/constraints.model';
+import { Hints } from '../../hints/models/hints.model';
 
 interface TasksAttr {
 	title: string
@@ -51,6 +52,12 @@ export class Tasks extends Model<Tasks, TasksAttr> {
 	answer_id: number;
 	@BelongsTo(() => Answer)
 	answer: Answer[];
+
+	@ForeignKey(() => Hints)
+	@Column({ type: DataType.INTEGER })
+	hint_id: number;
+	@BelongsTo(() => Hints)
+	hint: Hints[];
 
 	@HasMany(() => LessonTask)
 	lesson_task: LessonTask[];
