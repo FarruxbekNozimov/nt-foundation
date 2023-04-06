@@ -11,11 +11,11 @@ import {
 } from 'sequelize-typescript';
 
 interface OtpAttr {
-  otp:string
-	expiration_time:Date
-	verified:boolean
-	
-}
+  otp: string
+  expiration_time: Date
+  verified: boolean
+  phone:string
+} 
 
 @Table({ tableName: 'otp' })
 export class Otp extends Model<Otp, OtpAttr> {
@@ -23,19 +23,20 @@ export class Otp extends Model<Otp, OtpAttr> {
   id: number;
 
   @Column({ type: DataType.STRING })
-	otp:string;
+  otp: string;
 
-	@Column({ type: DataType.DATE })
-	expiration_time:Date;
+  @Column({ type: DataType.DATE })
+  expiration_time: Date;
 
-	@Column({ type: DataType.BOOLEAN })
-	verified:boolean;
+  @Column({ type: DataType.BOOLEAN })
+  verified: boolean;
 
-	@HasMany(() => Teacher)
-	teacher: Teacher[];
+  @Column({ type: DataType.STRING })
+  phone: string;
 
-	@HasMany(() => Student)
-	student: Student[];
+  @HasMany(() => Teacher)
+  teacher: Teacher[];
 
-	
+  @HasMany(() => Student)
+  student: Student[];
 }

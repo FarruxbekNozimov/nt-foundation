@@ -11,6 +11,8 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
 import { StudentService } from './student.service';
+import { PhoneUserDto } from './dto/phone-user.dto';
+import { VerifyOtpDto } from './dto/verifyOtp.dto';
 
 @ApiTags('Student')
 @Controller('student')
@@ -48,5 +50,17 @@ export class StudentController {
   @Delete(':id')
   async delete(@Param('id') id: number): Promise<number> {
     return await this.studentService.delete(id);
+  }
+
+  @ApiOperation({ summary: 'Create new otp phone' })
+  @Post('otp')
+  async newOtp(@Body() phoneUserDto: PhoneUserDto) {
+    return await this.studentService.newOTP(phoneUserDto);
+  }
+
+  @ApiOperation({ summary: 'Verify otp phone' })
+  @Post('verify')
+  async verifyOtp(@Body() verifyOtpDto: VerifyOtpDto) {
+    return await this.studentService.verifyOtp(verifyOtpDto);
   }
 }
