@@ -1,4 +1,9 @@
-import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpException,
+  HttpStatus,
+  Injectable,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Student } from './models/student.model';
 import { CreateStudentDto } from './dto/create-student.dto';
@@ -24,7 +29,9 @@ export class StudentService {
   }
 
   async findAll() {
-    return await this.studentRepo.findAll({ include: { all: true, nested: true } });
+    return await this.studentRepo.findAll({
+      include: { all: true, nested: true },
+    });
   }
 
   async findOne(id: number) {
@@ -34,7 +41,6 @@ export class StudentService {
   async findOneByPhone(phone: string) {
     return await this.studentRepo.findOne({ where: { phone_number: phone } });
   }
-
 
   async update(id: number, updateStudentDto: UpdateStudentDto) {
     return await this.studentRepo.update(updateStudentDto, {
@@ -58,14 +64,16 @@ export class StudentService {
       });
       const now = new Date();
       const expiration_time = AddMinutesToDate(now, 5);
-      const user = await this.studentRepo.create({ phone_number: phoneUserDto.phone_number })
-      const student = await this.studentRepo.findOne({ where: { phone_number } })
-      await this.otpRepo.destroy({ where: { id: student.otp_id } })
+      const student = await this.studentRepo.findOne({
+        where: { phone_number },
+      });
+      await this.otpRepo.destroy({ where: { id: student.otp_id } });
 
       const newOtp = await this.otpRepo.create({
         otp,
         expiration_time,
-        verified: false
+        verified: false,
+        phone: phone_number,
       });
       const details = {
         timestamp: now,
@@ -77,7 +85,7 @@ export class StudentService {
       const encoded = await encode(JSON.stringify(details));
       return { status: 'Success', Details: encoded };
     } catch (error) {
-      return { status: 'Error', message: 'Otp yozishda xatolik !!!' }
+      return { status: 'Error', message: 'Otp yozishda xatolik !!!' };
     }
   }
 
@@ -95,22 +103,29 @@ export class StudentService {
         if (dates.compare(result.expiration_time, currentdate)) {
           if (otp === result.otp) {
             const user = await this.studentRepo.findOne({
-              where: { phone_number: phone_number }
+              where: { phone_number: phone_number },
             });
-            console.log(user);
             if (user) {
-              const updatedUser = await this.studentRepo.update({},
-                { where: { id: user.id }, returning: true },
-              );
+              const updatedUser = await this.studentRepo.findOne({
+                where: { id: user.id },
+              });
               await this.otpRepo.update(
                 { verified: true },
                 { where: { id: obj.otp_id }, returning: true },
               );
-              console.log(updatedUser);
-              const response = {
-                user: updatedUser,
-              };
-              return response;
+              if (!updatedUser[0]) {
+                return {
+                  status: 200,
+                  isUser: false,
+                  message: "User login failed successfuly. "
+                };
+              } else {
+                return {
+                  status: 200,
+                  isUser: true,
+                  message: "User login success"
+                };
+              }
             }
           } else {
             throw new BadRequestException('Otp is not match');

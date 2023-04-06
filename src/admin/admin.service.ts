@@ -32,4 +32,6 @@ export class AdminService {
     const result = await this.adminRepo.destroy({ where: { id } });
     return result;
   }
+
+  
 }

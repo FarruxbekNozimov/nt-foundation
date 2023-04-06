@@ -11,11 +11,13 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { CreateTeacherDto } from './dto/create-teacher.dto';
 import { UpdateTeacherDto } from './dto/update-teacher.dto';
 import { TeacherService } from './teacher.service';
+import { PhoneUserDto } from './dto/phone-user.dto';
+import { VerifyOtpDto } from './dto/verifyOtp.dto';
 
 @ApiTags('Teacher')
 @Controller('teacher')
 export class TeacherController {
-  constructor(private readonly teacherService: TeacherService) {}
+  constructor(private readonly teacherService: TeacherService) { }
 
   @ApiOperation({ summary: 'Create a teacher' })
   @Post()
@@ -48,5 +50,17 @@ export class TeacherController {
   @Delete(':id')
   async delete(@Param('id') id: number): Promise<number> {
     return await this.teacherService.delete(id);
+  }
+
+  @ApiOperation({ summary: 'Create new otp phone' })
+  @Post('otp')
+  async newOtp(@Body() phoneUserDto: PhoneUserDto) {
+    return await this.teacherService.newOTP(phoneUserDto);
+  }
+
+  @ApiOperation({ summary: 'Verify otp phone' })
+  @Post('verify')
+  async verifyOtp(@Body() verifyOtpDto: VerifyOtpDto) {
+    return await this.teacherService.verifyOtp(verifyOtpDto);
   }
 }
