@@ -13,7 +13,6 @@ import { JwtAuthGuard } from '../guards/jwt-auth.guards';
 export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Login Admin' })
   @HttpCode(200)
   @Post('admin/login')
@@ -22,7 +21,6 @@ export class AuthController {
   }
 
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Refresh token for admin' })
   @Post('admin/:id/refresh')
   admin_refreshToken(
@@ -34,7 +32,6 @@ export class AuthController {
   }
 
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'New otp Teacher' })
   @HttpCode(200)
   @Post('teacher/otp')
@@ -42,7 +39,6 @@ export class AuthController {
     return this.authService.teacher_newOTP(phoneUserDto);
   }
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Verify otp phone' })
   @Post('teacher/verify')
   async verifyOtp(@Body() verifyOtpDto: VerifyOtpDto, @Res({ passthrough: true }) res: Response) {
@@ -50,7 +46,6 @@ export class AuthController {
   }
 
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Refresh token for teacher' })
   @Post('teacher/:id/refresh')
   teacher_refreshToken(
@@ -61,7 +56,6 @@ export class AuthController {
     return this.authService.teacher_refreshToken(+id, refreshToken, res);
   }
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'New otp Student' })
   @HttpCode(200)
   @Post('student/otp')
@@ -69,7 +63,6 @@ export class AuthController {
     return this.authService.student_newOTP(phoneUserDto);
   }
 
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Student Verify otp phone' })
   @Post('student/verify')
   async student_verifyOtp(@Body() verifyOtpDto: VerifyOtpDto, @Res({ passthrough: true }) res: Response) {

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { SequelizeModule } from "@nestjs/sequelize";
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { AdminModule } from './admin/admin.module';
 import { AnswerModule } from './answer/answer.module';
 import { ConstraintsModule } from './constraints/constraints.module';
@@ -73,12 +73,33 @@ import { AuthModule } from './auth/auth.module';
         TasksSample,
         Teacher,
         Video,
-        Classes
+        Classes,
       ],
       autoLoadModels: true,
       logging: false,
-    }), AuthModule, AdminModule, AnswerModule, ConstraintsModule, DifficultModule, FileModule, GenderModule, HintsModule, LessonModule, LessonTaskModule, MediaModule, MessageModule, OtpModule, RatingModule, StudentModule, TasksModule, TasksSampleModule, TeacherModule, VideoModule, ClassesModule],
+    }),
+    AuthModule,
+    AdminModule,
+    AnswerModule,
+    ConstraintsModule,
+    DifficultModule,
+    FileModule,
+    GenderModule,
+    HintsModule,
+    LessonModule,
+    LessonTaskModule,
+    MediaModule,
+    MessageModule,
+    OtpModule,
+    RatingModule,
+    StudentModule,
+    TasksModule,
+    TasksSampleModule,
+    TeacherModule,
+    VideoModule,
+    ClassesModule,
+  ],
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}

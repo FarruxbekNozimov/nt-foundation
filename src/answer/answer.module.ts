@@ -4,9 +4,10 @@ import { JwtModule } from '@nestjs/jwt';
 import { AnswerController } from './answer.controller';
 import { AnswerService } from './answer.service';
 import { Answer } from './models/answer.model';
+import { AdminModule } from '../admin/admin.module';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Answer]), JwtModule],
+  imports: [SequelizeModule.forFeature([Answer]), JwtModule, AdminModule],
   controllers: [AnswerController],
   providers: [AnswerService],
 })

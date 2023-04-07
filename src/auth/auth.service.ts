@@ -91,7 +91,8 @@ export class AuthService {
   }
 
   async getToken(user: any) {
-    const payload = { id: user.id };
+    const is_admin = await this.adminService.findOne(user.id)
+    const payload = { id: user.id, is_active: user.is_active, is_admin: !(!is_admin) };
     const [accessToken, refreshToken] = await Promise.all([
       this.jwtService.signAsync(payload, {
         secret: process.env.REFRESH_TOKEN_KEY,

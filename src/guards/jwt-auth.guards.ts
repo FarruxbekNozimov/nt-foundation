@@ -25,20 +25,13 @@ export class JwtAuthGuard implements CanActivate {
       });
     }
     let user: any;
-    let userData: any;
     try {
       user = this.jwtService.verify(token, {
         secret: process.env.REFRESH_TOKEN_KEY,
       });
-      // userData = await this.usersService.getUserById(user.id);
     } catch (error) {
       throw new UnauthorizedException({
         message: "Foydalanuvchi avtorizatsiyadan o'tmagan",
-      });
-    }
-    if (!user.is_active) {
-      throw new UnauthorizedException({
-        message: 'Foydalanuvchi avtiv emas',
       });
     }
     req.user = user;

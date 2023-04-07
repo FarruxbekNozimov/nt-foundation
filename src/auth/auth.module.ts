@@ -18,6 +18,6 @@ import { AdminModule } from "../admin/admin.module";
     OtpModule, JwtModule.register({})],
   controllers: [AuthController],
   providers: [AuthService],
-  exports: [AuthService, JwtModule],
+  exports: [AuthService, JwtModule, AdminModule],
 })
 export class AuthModule { }

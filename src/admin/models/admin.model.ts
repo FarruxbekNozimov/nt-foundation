@@ -35,11 +35,10 @@ export class Admin extends Model<Admin, AdminAttr> {
 	@Column({ type: DataType.STRING })
 	email:string;
 
-	@Column({ type: DataType.BOOLEAN })
+	@Column({ type: DataType.BOOLEAN, defaultValue:true })
 	is_active:boolean;
 
 	@Column({ type: DataType.STRING })
-	refresh_token:string;
-
+	refresh_token: string;
 	
 }

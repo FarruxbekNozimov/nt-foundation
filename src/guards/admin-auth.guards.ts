@@ -6,10 +6,12 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Observable } from 'rxjs';
+import { AdminService } from '../admin/admin.service';
 
 @Injectable()
 export class AdminAuthGuard implements CanActivate {
-  constructor(private readonly jwtService: JwtService) { }
+  constructor(
+    private readonly jwtService: JwtService) { }
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
@@ -22,23 +24,22 @@ export class AdminAuthGuard implements CanActivate {
     const bearer = authHeader.split(' ')[0];
     const token = authHeader.split(' ')[1];
     if (bearer !== 'Bearer' || !token) {
-      throw new UnauthorizedException({ 
+      throw new UnauthorizedException({
         message: "Foydalanuvchi avtorizatsiyadan o'tmagan 2",
       });
     }
     let user: any;
-    console.log();
     try {
       user = this.jwtService.verify(token, {
         secret: process.env.REFRESH_TOKEN_KEY,
       });
-      console.log(user);
     } catch (error) {
       throw new UnauthorizedException({
         message: "Foydalanuvchi avtorizatsiyadan o'tmagan 3",
       });
     }
-    if (!user.is_owner) {
+    console.log(user);
+    if (!user.is_admin) {
       throw new UnauthorizedException({
         message: 'Foydalanuvchi admin emas',
       });

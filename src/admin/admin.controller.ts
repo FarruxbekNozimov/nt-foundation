@@ -22,8 +22,8 @@ import { AdminAuthGuard } from '../guards/admin-auth.guards';
 export class AdminController {
   constructor(private readonly adminService: AdminService) { }
 
-  @UseGuards(AdminAuthGuard)
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(AdminAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Create a admin' })
   @Post()
   create(@Body() createAdminDto: CreateAdminDto) {

@@ -8,7 +8,7 @@ import { AllExceptionsFilter } from './error/errorHandler';
 const start = async () => {
   try {
     const app = await NestFactory.create(AppModule);
-    const PORT = process.env.PORT || 7000;
+    const PORT = process.env.API_PORT || 7000;
     app.setGlobalPrefix('api');
 
     const config = new DocumentBuilder()
@@ -22,8 +22,8 @@ const start = async () => {
 
     app.use(cookieParser());
     app.useGlobalPipes(new ValidationPipe())
-    const httpAdapter  = app.get(HttpAdapterHost);
-    app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
+    // const httpAdapter  = app.get(HttpAdapterHost);
+    // app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
     app.use((req, res, next) => {
       const startTime = Date.now()
