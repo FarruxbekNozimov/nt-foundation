@@ -24,6 +24,4 @@ export class Constraints extends Model<Constraints, ConstraintsAttr> {
 
 	@HasMany(() => Tasks)
 	tasks: Tasks[];
-
-	
 }

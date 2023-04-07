@@ -1,6 +1,9 @@
+import { ApiProperty } from "@nestjs/swagger";
+
 export class CreateClassesDto {
+	@ApiProperty({ example: '1' })
   student_id: number;
-	teacher_id: number;
-	is_active: boolean;
-	
+
+	@ApiProperty({ example: '1' })
+	teacher_id: number;	
 }

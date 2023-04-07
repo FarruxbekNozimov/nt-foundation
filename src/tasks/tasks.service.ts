@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Tasks } from './models/tasks.model';
 import { CreateTasksDto } from './dto/create-tasks.dto';
@@ -9,8 +9,12 @@ export class TasksService {
   constructor(@InjectModel(Tasks) private tasksRepo: typeof Tasks) { }
 
   async create(createTasksDto: CreateTasksDto) {
-    const res = await this.tasksRepo.create(createTasksDto);
-    return res;
+    try {
+      const res = await this.tasksRepo.create(createTasksDto);
+      return res;      
+    } catch (error) {
+      throw new BadRequestException('Bunday Id dagi hali mavjud emas !!!');
+    }
   }
 
   async findAll() {

@@ -10,9 +10,9 @@ import {
 } from 'sequelize-typescript';
 
 interface MediaAttr {
-  link:string
-	private:boolean
-	
+  link: string
+  private: boolean
+
 }
 
 @Table({ tableName: 'media' })
@@ -21,13 +21,11 @@ export class Media extends Model<Media, MediaAttr> {
   id: number;
 
   @Column({ type: DataType.STRING })
-	link:string;
+  link: string;
 
-	@Column({ type: DataType.BOOLEAN })
-	private:boolean;
+  @Column({ type: DataType.BOOLEAN, defaultValue: false })
+  private: boolean;
 
-	@HasMany(() => Message)
-	message: Message[];
-
-	
+  @HasMany(() => Message)
+  message: Message[];
 }

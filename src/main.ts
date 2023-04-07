@@ -10,8 +10,6 @@ const start = async () => {
     const PORT = process.env.PORT || 7000;
     app.setGlobalPrefix('api');
 
-    app.useGlobalPipes(new ValidationPipe())
-
     const config = new DocumentBuilder()
       .setTitle('NT Foundation')
       .setDescription('REST API')
@@ -22,6 +20,17 @@ const start = async () => {
     SwaggerModule.setup('/api/docs', app, document);
 
     app.use(cookieParser());
+    app.useGlobalPipes(new ValidationPipe())
+
+    app.use((req, res, next) => {
+      const startTime = Date.now()
+      res.on('finish', () => {
+        const endTime = Date.now()
+        const responseTime = endTime - startTime
+        console.log(`${req.method} ${req.originalUrl} ${res.statusCode} ${responseTime}ms`);
+      })
+      next();
+    })
     app.listen(PORT, () => {
       console.log(`Server ${PORT} da yuguryapti...`);
     });

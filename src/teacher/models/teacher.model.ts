@@ -1,6 +1,7 @@
 import { Classes } from '../../classes/models/classes.model';
 import { Otp } from "../../otp/models/otp.model";
 import { Gender } from "../../gender/models/gender.model";
+import { ApiProperty } from "@nestjs/swagger";
 import {
 	BelongsTo,
 	Column,
@@ -41,7 +42,7 @@ export class Teacher extends Model<Teacher, TeacherAttr> {
 	last_name: string;
 
 	@Column({ type: DataType.STRING })
-	phone: string;
+	phone_number: string;
 
 	@Column({ type: DataType.STRING })
 	password: string;

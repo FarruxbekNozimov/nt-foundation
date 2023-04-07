@@ -1,6 +1,12 @@
+import { ApiProperty } from "@nestjs/swagger";
+import { IsString } from "class-validator";
+
 export class CreateFileDto {
-  title: string;
+	@ApiProperty({ example: 'shart operatori' })
+	@IsString()
+	title: string;
+
+	@ApiProperty({ example: 'file1702.jpg' })
+	@IsString()
 	link: string;
-	private: boolean;
-	
 }

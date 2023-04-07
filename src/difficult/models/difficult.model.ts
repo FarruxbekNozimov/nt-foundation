@@ -1,9 +1,7 @@
 import { Tasks } from '../../tasks/models/tasks.model';
 import {
-  BelongsTo,
   Column,
   DataType,
-  ForeignKey,
   HasMany,
   Model,
   Table,
@@ -11,7 +9,6 @@ import {
 
 interface DifficultAttr {
   name:string
-	
 }
 
 @Table({ tableName: 'difficult' })
@@ -24,6 +21,4 @@ export class Difficult extends Model<Difficult, DifficultAttr> {
 
 	@HasMany(() => Tasks)
 	tasks: Tasks[];
-
-	
 }

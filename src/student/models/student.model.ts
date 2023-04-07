@@ -10,6 +10,7 @@ import {
 	Model,
 	Table,
 } from 'sequelize-typescript';
+import { Answer } from '../../answer/models/answer.model';
 
 interface StudentAttr {
 	username: string
@@ -77,5 +78,6 @@ export class Student extends Model<Student, StudentAttr> {
 	@HasMany(() => Classes)
 	class: Classes[];
 
-
+	@HasMany(() => Answer)
+	answer: Answer[];
 }
