@@ -1,8 +1,9 @@
-import { NestFactory } from '@nestjs/core';
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import { AllExceptionsFilter } from './error/errorHandler';
 
 const start = async () => {
   try {
@@ -21,6 +22,8 @@ const start = async () => {
 
     app.use(cookieParser());
     app.useGlobalPipes(new ValidationPipe())
+    const httpAdapter  = app.get(HttpAdapterHost);
+    app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
     app.use((req, res, next) => {
       const startTime = Date.now()
